@@ -1,0 +1,34 @@
+- name: Remove NGINX from Amazon Linux EC2
+  hosts: web
+  become: true
+  tasks:
+    - name: Stop nginx service if running
+      service:
+        name: nginx
+        state: stopped
+      ignore_errors: true
+
+
+    - name: Disable nginx service
+      service:
+        name: nginx
+        enabled: no
+      ignore_errors: true
+
+
+    - name: Remove nginx package
+      yum:
+        name: nginx
+        state: absent
+
+
+    - name: Delete nginx configuration directory
+      file:
+        path: /etc/nginx
+        state: absent
+
+
+    - name: Delete default nginx HTML directory
+      file:
+        path: /usr/share/nginx
+        state: absent

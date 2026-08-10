@@ -1,0 +1,9 @@
+- name: Remove user 'testuser'
+  hosts: all
+  become: true
+  tasks:
+    - name: Delete testuser
+      user:
+        name: testuser
+        state: absent
+        remove: yes  # to remove the whole directory of this user not only the user like in linux -> userdel -r devops 

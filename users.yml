@@ -1,0 +1,8 @@
+- name: Create a user called devops
+  hosts: all
+  become: true
+  tasks:
+    - name: Add user devops
+      user:
+        name: devops
+        state: present
