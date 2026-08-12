@@ -1,0 +1,8 @@
+- name: Install Apache on web servers
+  hosts: web
+  become: true
+  tasks:
+    - name: Install httpd
+      yum:
+        name: httpd
+        state: present

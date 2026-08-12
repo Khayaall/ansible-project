@@ -1,0 +1,8 @@
+- name: Install SQLite on db servers
+  hosts: db
+  become: true
+  tasks:
+    - name: Install sqlite
+      yum:
+        name: sqlite
+        state: present
