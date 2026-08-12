@@ -1,0 +1,6 @@
+- name: Examples with vars_files
+  hosts: all
+  tasks:
+    - name: Output the message
+      debug:
+        msg: "{{message}}"

@@ -1,0 +1,11 @@
+- name: Examples with vars_files
+  hosts: web
+  vars_files: 
+    - vars.yml
+  tasks:
+    - name: Output the message
+      debug:
+        msg: "{{message}}"
+    
+    - name: check for nginx status
+      command: "systemctl status {{zoz}}"
